@@ -1,0 +1,54 @@
+name: nricp-dev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+
+  # dev
+  - pytest
+  - typing_extensions
+  - pyclean
+
+  # core science packages
+  - numpy
+  - scipy
+
+  # numerical methods
+  - quadpy
+  - pymatsolver >= 0.4
+  # - pydiso  # only works with intel CPU
+  - python-mumps
+
+  # csv, fileio, and data handling
+  - openpyxl
+  - pandas
+  - zstandard # compression for writing xml files
+
+  # progress monitoring
+  - rich
+  - tqdm
+
+  # mesh requirements
+  - meshio >=5
+  - trimesh
+  - rtree # for trimesh
+  - vtk == 9.3.1
+  - pyvista == 0.46.1 # helper for vtk
+  - pyvistaqt
+  - pymeshfix == 0.17 # fixing surface mesh issues
+  - pyacvd == 0.3.1 # uniform surface meshes for pyvista
+
+  # plotting and display
+  - matplotlib
+  - colorcet
+  - tabulate
+  - glib # pyvista rendering
+  - imageio-ffmpeg # pyvista rendering
+  # - xvfbwrapper # pyvista rendering on linux
+  - trame # for pyvista
+  - pyvistaqt
+  - opencv # image tools
+
+  # parallel
+  - psutil # for checking core counts
