@@ -14,13 +14,18 @@ Python wrapper for vtkAbstractCellLocator to place for loop iteration over query
 """
 
 from __future__ import annotations
-from vtkmodules.all import vtkAbstractCellLocator, vtkDataSet, vtkPoints
+from vtkmodules.all import vtkAbstractCellLocator, vtkIdList, vtkDataSet, vtkPoints
 
 __all__: list[str] = ["CellLocator"]
 
 class CellLocator:
-    def __init__(self, arg0: vtkAbstractCellLocator, arg1: vtkDataSet) -> None: ...
-    def find_closest_points(self, arg0: vtkPoints) -> vtkPoints:
+    def __init__(self, locator: vtkAbstractCellLocator, source: vtkDataSet) -> None: ...
+    def find_closest_points(
+        self,
+        points: vtkPoints,
+        cell_ids: vtkIdList | None = None,
+        sub_ids: vtkIdList | None = None,
+    ) -> vtkPoints:
         """
         Find closest points on surface.
         """

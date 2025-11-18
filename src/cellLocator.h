@@ -48,7 +48,10 @@ public:
         this->locator->BuildLocator();
     }
 
-    vtkSmartPointer<vtkPoints> FindClosestPoints(vtkPoints *points)
+    vtkSmartPointer<vtkPoints> FindClosestPoints(
+        vtkPoints *points,
+        vtkIdList *cell_ids = nullptr,
+        vtkIdList *sub_ids = nullptr)
     {
         double query_point[3];
         double closest_point[3];
@@ -56,6 +59,17 @@ public:
         int sub_id;
         double dist2;
         vtkNew<vtkGenericCell> cell;
+
+        bool return_cell_ids = cell_ids != nullptr;
+        bool return_sub_ids = sub_ids != nullptr;
+        if (return_cell_ids)
+        {
+            cell_ids->SetNumberOfIds(points->GetNumberOfPoints());
+        }
+        if (return_sub_ids)
+        {
+            sub_ids->SetNumberOfIds(points->GetNumberOfPoints());
+        }
 
         vtkNew<vtkPoints> out_pts;
         out_pts->SetNumberOfPoints(points->GetNumberOfPoints());
@@ -71,7 +85,16 @@ public:
                 sub_id,
                 dist2);
             out_pts->SetPoint(i, closest_point);
+            if (return_cell_ids)
+            {
+                cell_ids->SetId(i, cell_id);
+            }
+            if (return_sub_ids)
+            {
+                sub_ids->SetId(i, sub_id);
+            }
         }
+
         return vtkSmartPointer<vtkPoints>(out_pts);
     }
 };

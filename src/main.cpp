@@ -1,9 +1,11 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 #include "../extern/PybindVTKTypeCaster.h"
 #include "cellLocator.h" // grab local file
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
+// PYBIND11_MAKE_OPAQUE(std::vector<int>)
 
 namespace py = pybind11;
 using rvp = py::return_value_policy;
