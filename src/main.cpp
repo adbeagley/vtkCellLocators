@@ -11,16 +11,15 @@ using rvp = py::return_value_policy;
 PYBIND11_MODULE(cellLocator, m)
 {
     m.doc() = R"pbdoc(
-        Python wrapper for manifold and vtk intersection operation
+        Python wrapper for vtkAbstractCellLocator to place for loop iteration over query points inside of C++ code
         -----------------------
 
-        .. currentmodule:: intersectVolCells
+        .. currentmodule:: cellLocator
 
         .. autosummary::
            :toctree: _generate
 
-           update
-           get_output
+           find_closest_points
     )pbdoc";
     py::class_<CellLocator, py::smart_holder>(
         m, "CellLocator")
