@@ -1,0 +1,10 @@
+NAME
+  vtkCellLocators::vtkModule
+LIBRARY_NAME
+  vtkCellLocators
+SPDX_LICENSE_IDENTIFIER
+  GPL v3
+SPDX_COPYRIGHT_TEXT
+  Copyright (c) Aren Beagley
+DEPENDS
+  VTK::CommonCore VTK::CommonDataModel
