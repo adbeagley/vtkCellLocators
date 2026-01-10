@@ -36,4 +36,5 @@ if sys.version_info >= (3, 8) and sys.platform == 'win32':
     _windows_dll_path()
 
 
-from .CellLocators import StaticCellLocator, CellLocator, OBBTree
+# Need to automate this
+from .vtkCellLocators import StaticCellLocator, CellLocator, OBBTree

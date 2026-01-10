@@ -1,3 +1,10 @@
-set(classes StaticCellLocator CellLocator OBBTree)
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS *.cpp *.c *.cxx)
+file(GLOB_RECURSE INC_FILES CONFIGURE_DEPENDS *.h */*.h)
 
-vtk_module_add_module(vtkCellLocators::vtkModule CLASSES ${classes})
+cmake_print_variables(SRC_FILES)
+cmake_print_variables(INC_FILES)
+vtk_module_add_module(CellLocators::CellLocators SOURCES ${SRC_FILES} HEADERS ${INC_FILES})
+
+# set(classes StaticCellLocator CellLocator OBBTree)
+
+# vtk_module_add_module(CellLocators::CellLocators CLASSES ${classes})

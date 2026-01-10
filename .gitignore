@@ -157,3 +157,7 @@ private/
 **/Aziliz/*_meshes/*.vtp
 **/Aziliz/*_meshes/*.vtu
 SyntheticImageMeshWithError_KNN.vtu
+
+
+install
+install/**

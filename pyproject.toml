@@ -1,18 +1,12 @@
 [build-system]
-requires = [
-    "scikit-build-core",
-    "vtk==9.3.1",
-    "tbb-devel",
-    "pymatsolver",
-    "scipy",
-]
+requires = ["scikit-build-core", "vtk==9.3.1", "tbb-devel"]
 build-backend = "scikit_build_core.build"
 
 [project]
 name = "vtkCellLocators"
 version = "0.0.1"
 requires-python = ">= 3.8"
-dependencies = ["vtk == 9.3.1", "pymatsolver", "scipy"]
+dependencies = ["vtk >= 9.3.1"]
 
 [tool.scikit-build]
 # The versions of CMake to allow as a python-compatible specifier.

@@ -1,5 +1,5 @@
 NAME
-  vtkCellLocators::vtkModule
+  CellLocators::CellLocators
 LIBRARY_NAME
   vtkCellLocators
 SPDX_LICENSE_IDENTIFIER
@@ -7,4 +7,4 @@ SPDX_LICENSE_IDENTIFIER
 SPDX_COPYRIGHT_TEXT
   Copyright (c) Aren Beagley
 DEPENDS
-  VTK::CommonCore VTK::CommonDataModel
+  VTK::CommonCore VTK::CommonDataModel VTK::FiltersModeling

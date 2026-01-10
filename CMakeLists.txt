@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.15)
 
 # Scikit-build-core sets these values based on pyproject.toml
 project(
-    ${SKBUILD_PROJECT_NAME}
-    VERSION ${SKBUILD_PROJECT_VERSION}
+    vtkCellLocators
+    # VERSION ${SKBUILD_PROJECT_VERSION}
     LANGUAGES CXX
 )
 
@@ -46,15 +46,14 @@ cmake_print_variables(SRC_DIR)
 
 # - ${SKBUILD_NULL_DIR}: Anything installed here will not be placed in the wheel.
 
-# Windows export symbols.
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+# # Windows export symbols.
+# set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-# Set PIC
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# # Set PIC
+# set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 
-
-find_package(VTK COMPONENTS CommonCore CommonDataModel Python)
+find_package(VTK COMPONENTS CommonCore CommonDataModel FiltersModeling Python)
 if(NOT VTK_FOUND)
     message("Skipping example: ${VTK_NOT_FOUND_MESSAGE}")
     return()
@@ -73,9 +72,9 @@ option(BUILD_SHARED_LIBS "Build shared or static libraries" "${_shared_default}"
 vtk_module_scan(
     # With only 1 module file, this is easier. With more,
     # `vtk_module_find_modules` would be preferred.
-    MODULE_FILES "${CELL_LOCATOR_DIR}/vtk.module"
+    MODULE_FILES "${SRC_DIR}/vtk.module"
     # Not building the only module we have is silly.
-    REQUEST_MODULES CellLocatorCpp::CellLocatorCpp
+    REQUEST_MODULES CellLocators::CellLocators
     # Store the list of provided modules from this scan.
     PROVIDES_MODULES modules
     # Enable the tests for our modules.
@@ -91,7 +90,7 @@ vtk_module_build(MODULES ${modules})
 # Wrap it with Python.
 vtk_module_wrap_python(
     MODULES ${modules}
-    TARGET CellLocatorCpp::CellLocatorCppPython
+    TARGET CellLocators::CellLocatorsPython
     WRAPPED_MODULES wrapping_modules
     INSTALL_EXPORT wrapping_export
     PYTHON_PACKAGE "${PYTHON_NAME}"
@@ -112,6 +111,7 @@ vtk_module_wrap_python(
 cmake_print_variables(wrapping_export)
 cmake_print_variables(wrapping_modules)
 
+
 # Create an `__init__.py` containing wrapped filters.
 set(python_modules)
 foreach(module ${modules})
@@ -123,7 +123,7 @@ endforeach()
 
 list(JOIN python_modules , python_modules_string)
 configure_file(
-    "${CELL_LOCATOR_DIR}/__init__.py.in"
+    "${SRC_DIR}/__init__.py.in"
     "${CMAKE_BINARY_DIR}/${python_destination}/${PYTHON_NAME}/__init__.py"
     @ONLY)
 install(
@@ -133,6 +133,6 @@ install(
 # Create and add _build_path.py to support importing from
 # build tree and generating pyi files, no need to install it though
 configure_file(
-    "${CELL_LOCATOR_DIR}/_build_paths.py.in"
+    "${SRC_DIR}/_build_paths.py.in"
     "${CMAKE_BINARY_DIR}/${python_destination}/${PYTHON_NAME}/_build_paths.py"
     @ONLY)
