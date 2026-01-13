@@ -1,3 +1,5 @@
+include(CMakePrintHelpers)
+
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS *.cpp *.c *.cxx)
 file(GLOB_RECURSE INC_FILES CONFIGURE_DEPENDS *.h */*.h)
 
