@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.15)
 
 # Scikit-build-core sets these values based on pyproject.toml
 project(
-    vtkCellLocators
-    # VERSION ${SKBUILD_PROJECT_VERSION}
+    ${SKBUILD_PROJECT_NAME}
+    VERSION ${SKBUILD_PROJECT_VERSION}
     LANGUAGES CXX
 )
 
@@ -13,17 +13,12 @@ include(GNUInstallDirs)
 include(CMakePrintHelpers)
 include(CTest)
 
-# Only overwrite it if it set to default
-if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/install")
-endif()
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}")
 
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
-set(PYTHON_NAME "vtkCellLocators")
+set(PYTHON_NAME ${SKBUILD_PROJECT_NAME})
 
 cmake_print_variables(CMAKE_INSTALL_PREFIX)
 cmake_print_variables(CMAKE_BINARY_DIR)
@@ -83,6 +78,8 @@ vtk_module_scan(
 vtk_module_python_default_destination(python_destination)
 cmake_print_variables(python_destination)
 cmake_print_variables(modules)
+cmake_print_variables(SKBUILD_PLATLIB_DIR)
+cmake_print_variables(SKBUILD_HEADERS_DIR)
 
 # Build the module we just scanned.
 vtk_module_build(MODULES ${modules})

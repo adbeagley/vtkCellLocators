@@ -1,5 +1,5 @@
 [build-system]
-requires = ["scikit-build-core", "vtk==9.3.1", "tbb-devel"]
+requires = ["scikit-build-core", "vtk>=9.3.1", "tbb-devel"]
 build-backend = "scikit_build_core.build"
 
 [project]
@@ -13,7 +13,8 @@ dependencies = ["vtk >= 9.3.1"]
 # cmake.version = ""
 
 # A list of args to pass to CMake when configuring the project.
-cmake.args = ["-DCMAKE_INSTALL_PREFIX=./install/site-packages"]
+# cmake.args = ["-DCMAKE_INSTALL_PREFIX=./install/site-packages"]
+# cmake.args = ["-DCMAKE_INSTALL_PREFIX=install"]
 
 # A table of defines to pass to CMake when configuring the project. Additive.
 # cmake.define = {}
