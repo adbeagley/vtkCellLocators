@@ -9,13 +9,15 @@ dependencies:
   - pytest
   - typing_extensions
   - pyclean
+  - tbb-devel
+  - cmake
+  - ninja
 
   # core science packages
   - numpy
   - scipy
 
   # numerical methods
-  - quadpy
   - pymatsolver >= 0.4
   # - pydiso  # only works with intel CPU
   - python-mumps
@@ -31,13 +33,10 @@ dependencies:
 
   # mesh requirements
   - meshio >=5
-  - trimesh
-  - rtree # for trimesh
-  - vtk == 9.3.1
-  - pyvista == 0.46.1 # helper for vtk
+  - vtk >= 9.3.1
+  - pyvista >= 0.46.1 # helper for vtk
   - pyvistaqt
-  - pymeshfix == 0.17 # fixing surface mesh issues
-  - pyacvd == 0.3.1 # uniform surface meshes for pyvista
+  - pyacvd
 
   # plotting and display
   - matplotlib
