@@ -24,6 +24,10 @@ cmake_print_variables(CMAKE_INSTALL_PREFIX)
 cmake_print_variables(CMAKE_BINARY_DIR)
 cmake_print_variables(CMAKE_CURRENT_SOURCE_DIR)
 cmake_print_variables(SRC_DIR)
+# cmake_print_variables(SKBUILD_PLATLIB_DIR)
+# cmake_print_variables(SKBUILD_HEADERS_DIR)
+# cmake_print_variables(SKBUILD_DATA_DIR)
+# cmake_print_variables(SKBUILD_METADATA_DIR)
 
 # TODO: review if these lines are even needed?
 # https://scikit-build-core.readthedocs.io/en/latest/guide/cmakelists.html
@@ -78,8 +82,7 @@ vtk_module_scan(
 vtk_module_python_default_destination(python_destination)
 cmake_print_variables(python_destination)
 cmake_print_variables(modules)
-cmake_print_variables(SKBUILD_PLATLIB_DIR)
-cmake_print_variables(SKBUILD_HEADERS_DIR)
+
 
 # Build the module we just scanned.
 vtk_module_build(MODULES ${modules})
