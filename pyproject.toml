@@ -6,11 +6,15 @@ build-backend = "scikit_build_core.build"
 name = "vtkCellLocators"
 version = "0.0.1"
 requires-python = ">= 3.8"
-dependencies = ["vtk >= 9.3.1"]
+dependencies = ["vtk >= 9.5"]
 
 [tool.scikit-build]
 # The versions of CMake to allow as a python-compatible specifier.
 # cmake.version = ""
+build.verbose = true
+
+# The logging level to display.
+logging.level = "WARNING"
 
 # A list of args to pass to CMake when configuring the project.
 # cmake.args = ["-DCMAKE_INSTALL_PREFIX=./install/site-packages"]
@@ -34,8 +38,10 @@ ninja.version = ">=1.5"
 # Use Make as a fallback if a suitable Ninja executable is not found.
 # ninja.make-fallback = true
 
-# The logging level to display.
-logging.level = "WARNING"
+# The CMake install prefix relative to the platlib wheel path.
+# wheel.install-dir = "install"
+# You can select a different wheel target directory, as well, but that syntax is experimental; install to ${SKBUILD_DATA_DIR}, etc. from within CMake instead for now.
+
 
 # Files to include in the SDist even if they are skipped by default. Supports gitignore syntax.
 # sdist.include = []
@@ -58,9 +64,6 @@ sdist.cmake = false
 # Fill out extra tags that are not required.
 # wheel.expand-macos-universal-tags = false
 
-# The CMake install prefix relative to the platlib wheel path.
-# wheel.install-dir = "install"
-# You can select a different wheel target directory, as well, but that syntax is experimental; install to ${SKBUILD_DATA_DIR}, etc. from within CMake instead for now.
 
 # A list of license files to include in the wheel. Supports glob patterns.
 # wheel.license-files = ""
@@ -94,9 +97,6 @@ editable.verbose = true
 
 # The build targets to use when building the project.
 # build.targets = []
-
-# Verbose printout when building.
-build.verbose = true
 
 # Additional ``build-system.requires``.
 # build.requires = []
