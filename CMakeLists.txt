@@ -13,6 +13,8 @@ include(GNUInstallDirs)
 include(CMakePrintHelpers)
 include(CTest)
 
+set(CMAKE_INSTALL_PREFIX ${SKBUILD_DATA_DIR})
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}")
@@ -79,7 +81,8 @@ vtk_module_scan(
     # Enable the tests for our modules.
     ENABLE_TESTS ON)
 
-vtk_module_python_default_destination(python_destination)
+# vtk_module_python_default_destination(python_destination)
+set(python_destination ".") # SKBUILD has set this correctly already
 cmake_print_variables(python_destination)
 cmake_print_variables(modules)
 

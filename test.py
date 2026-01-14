@@ -1,4 +1,4 @@
-from vtkmodules import vtkDataSet
+from vtkmodules.all import vtkDataSet
 
 import vtkCellLocators
 

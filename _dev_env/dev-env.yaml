@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python
+  - python==3.12  # 3.13 seems to solve super slowly
 
   # dev
   - pytest
@@ -33,7 +33,7 @@ dependencies:
 
   # mesh requirements
   - meshio >=5
-  - vtk >= 9.3.1
+  - vtk >= 9.5
   - pyvista >= 0.46.1 # helper for vtk
   - pyvistaqt
   - pyacvd
