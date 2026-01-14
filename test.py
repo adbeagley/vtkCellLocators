@@ -1,3 +1,5 @@
+from vtkmodules import vtkDataSet
+
 import vtkCellLocators
 
 for x in dir(vtkCellLocators):
