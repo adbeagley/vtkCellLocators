@@ -1,5 +1,5 @@
 [build-system]
-requires = ["scikit-build-core", "vtk>=9.3.1", "tbb-devel"]
+requires = ["scikit-build-core", "vtk>=9.5", "tbb-devel"]
 build-backend = "scikit_build_core.build"
 
 [project]
