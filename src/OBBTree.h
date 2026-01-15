@@ -4,12 +4,7 @@
 #include "vtkCellLocatorsModule.h" // for export macro>
 #include <vtkPoints.h>
 #include <vtkIdList.h>
-#include <vtkObject.h>
-#include <vtkLocator.h>
-#include <vtkAbstractCellLocator.h>
 #include <vtkOBBTree.h>
-#include <vtkABI.h>
-#include "vtkABINamespace.h"
 
 class VTKCELLLOCATORS_EXPORT OBBTree : public vtkOBBTree
 {

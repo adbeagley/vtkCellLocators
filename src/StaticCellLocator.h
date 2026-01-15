@@ -4,9 +4,6 @@
 #include "vtkCellLocatorsModule.h" // for export macro>
 #include <vtkPoints.h>
 #include <vtkIdList.h>
-#include <vtkObject.h>
-#include <vtkLocator.h>
-#include <vtkAbstractCellLocator.h>
 #include <vtkStaticCellLocator.h>
 
 class VTKCELLLOCATORS_EXPORT StaticCellLocator : public vtkStaticCellLocator

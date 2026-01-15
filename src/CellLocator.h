@@ -2,11 +2,8 @@
 #define CellLocator_h
 
 #include "vtkCellLocatorsModule.h" // for export macro>
-#include <vtkObject.h>
 #include <vtkPoints.h>
 #include <vtkIdList.h>
-#include <vtkLocator.h>
-#include <vtkAbstractCellLocator.h>
 #include <vtkCellLocator.h>
 
 // CellLocator
